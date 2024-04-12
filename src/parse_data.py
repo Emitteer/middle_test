@@ -15,3 +15,14 @@ def parse_line(line):
     except ValueError:
         raise TypeError(f"Year and population values must be integers")
     return country, year, population
+
+
+def insert_population_data(data, country, year, population):
+    if country not in data:
+        data[country] = {}
+    if year in data[country]:
+        raise ValueError(f"Year {year} is already exist in data for country: {country}")
+    data[country][year] = population
+
+
+
