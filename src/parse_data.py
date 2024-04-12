@@ -25,4 +25,10 @@ def insert_population_data(data, country, year, population):
     data[country][year] = population
 
 
-
+def parse_population_data(filename):
+    data = {}
+    lines = read_population_file(filename)
+    for line in lines:
+        country, year, population = parse_line(line)
+        insert_population_data(data, country, year, population)
+    return data
